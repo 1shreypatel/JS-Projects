@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Temperature Converter</h1>
+    <h3 id="celsius"></h3>
+    <h3 id="fahrenheit"></h3>
+
+    <script>
+        let celsius = Number(prompt("Enter temperature in celsius : "));
+
+        let fahrenheit = (celsius * 9/5) + 32;
+
+        document.getElementById("celsius").innerHTML = `Temperature in Celsius is : ${celsius}°C `;
+        document.getElementById("fahrenheit").innerHTML = `Temperature in Fahrenheit is : ${fahrenheit}°F `;
+    </script>
+    
+</body>
+</html>

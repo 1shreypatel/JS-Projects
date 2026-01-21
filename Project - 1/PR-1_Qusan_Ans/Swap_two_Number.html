@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Swap Two Numbers</h1>
+    <h3 id="first"></h3>
+    <h3 id="second"></h3>
+    <hr></hr>
+    <h3 id="first1"></h3>
+    <h3 id="second1"></h3>
+
+    <script>
+        let first = Number(prompt("Enter first number : "));
+        let second = Number(prompt("Enter second number : "));
+
+        document.getElementById("first").innerText = `First Number after swapping : ${first}`;
+        document.getElementById("second").innerText = `Second Number after swapping : ${second}`;
+
+        first = first + second;
+        second = first - second;
+        first = first - second;
+        
+        document.getElementById("first1").innerText = `First Number after swapping : ${first}`;
+        document.getElementById("second1").innerText = `Second Number after swapping : ${second}`;
+    </script>
+
+</body>
+</html>

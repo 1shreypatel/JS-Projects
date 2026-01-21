@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Age Calculator</h1>
+    <h3 id="birthYear"></h3>
+    <h3 id="startYear"></h3>
+    <h3 id="age"></h3>
+
+    <script>
+        let by = Number(prompt("Enter your birth year : "));
+        let sy = Number(prompt("Enter the start year to calculate age : "));
+
+        let agr = sy - by;
+
+        document.getElementById("birthYear").innerText = `Your Birth Year : ${by}`;
+        document.getElementById("startYear").innerText = `Start Year : ${sy}`;
+        document.getElementById("age").innerText = `Your Age : ${agr}`;
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simple Interest Calculator</h1>
+    <h3 id="pricipal"></h3>
+    <h3 id="ret"></h3>
+    <h3 id="time"></h3>
+    <h3 id="sip"></h3>
+    <h3 id="total"></h3>
+
+    <script>
+
+        let principal = Number(prompt("Enter the pricipal amount : "));
+        let ret = Number(prompt("Enter the rate of interest : "));
+        let time = Number(prompt("Enter the time : "));
+
+        let SIP = principal * ret * time / 100;
+        let totalAmount = principal + SIP;
+
+        document.getElementById("pricipal").innerHTML = `Your pricipal amount is : ${principal} `;
+        document.getElementById("ret").innerHTML = `Your rate of interest is : ${ret}%`;
+        document.getElementById("time").innerHTML = `Your time : ${time} `;
+        document.getElementById("sip").innerHTML = `Your Simple Interest is : ${SIP} `;
+        document.getElementById("total").innerHTML += `<br>Your Total Amount after interest is : ${totalAmount} `;
+
+    </script>
+    
+</body>
+</html>

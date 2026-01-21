@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Total & Percentage Calculator</h1>
+    <h3 id="M1"></h3>
+    <h3 id="M2"></h3>
+    <h3 id="M3"></h3>
+    <h3 id="M4"></h3>
+    <h3 id="M5"></h3>
+    <h3 id="totalMarks"></h3>
+    <h3 id="percentage"></h3>
+
+    <script>
+        let mark1 = Number(prompt("Enter marks of subject 1 : "));
+        let mark2 = Number(prompt("Enter marks of subject 2 : "));
+        let mark3 = Number(prompt("Enter marks of subject 3 : "));
+        let mark4 = Number(prompt("Enter marks of subject 4 : "));
+        let mark5 = Number(prompt("Enter marks of subject 5 : "));
+
+        let tottalMarks = mark1 + mark2 + mark3 + mark4 + mark5;
+        let percentage = tottalMarks / 5;
+
+        document.getElementById("M1").innerHTML = `Marks of Subject 1 : ${mark1} `;
+        document.getElementById("M2").innerHTML = `Marks of Subject 2 : ${mark2} `;
+        document.getElementById("M3").innerHTML = `Marks of Subject 3 : ${mark3} `;
+        document.getElementById("M4").innerHTML = `Marks of Subject 4 : ${mark4} `;
+        document.getElementById("M5").innerHTML = `Marks of Subject 5 : ${mark5} `;
+        document.getElementById("totalMarks").innerHTML = `Your Total Marks is : ${tottalMarks} `;
+        document.getElementById("percentage").innerHTML = `Your Percentage is : ${percentage}%`;
+
+    </script>
+    
+</body>
+</html>

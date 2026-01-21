@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Take Seconds And Convet It Into Time</h1>
+    <h3 id="Seconds"></h3>
+    <h3 id="Time"></h3>
+
+    <script>
+        let Seconds = Number(prompt("Enter seconds : "));
+        let hours = parseInt(Seconds / 3600);
+        let minutes = parseInt((Seconds % 3600) / 60);
+        let sec = parseInt(Seconds % 60);
+        document.getElementById("Seconds").innerHTML = `Seconds : ${Seconds} seconds`;  
+        document.getElementById("Time").innerHTML = `Time : ${hours} hours : ${minutes} minutes : ${sec} seconds`;
+
+    </script>
+
+</body>
+</html>
