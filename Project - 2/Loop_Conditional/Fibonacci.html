@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <h1>Fibonacci Series</h1>
+    <h2 id="num"></h2>
+    <h2 id="fibo"></h2>
+
+    <script>
+        let num = Number(prompt("Enter Any Number : "));
+        document.getElementById("num").innerText = `Number : ${num}`;
+
+        let x = 0;
+        let y = 1;
+        let fibo = "";
+
+        for (let i = 1; i <= num; i++) {
+            fibo += x + " ";
+
+            let z = x + y;
+            x = y;
+            y = z;
+        }
+
+        document.getElementById("fibo").innerText = fiboText;
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factor Number</title>
+</head>
+<body>
+    
+    <h1>Find The Factor Number</h1>
+    <h1 id="num"></h1>
+    <h1 id="demo"></h1>
+
+    <script>
+        let num = Number(prompt("Enter Any Number : "));
+        document.getElementById("num").innerText = `Factor Number is : ${num}`;
+
+        for(let i = 1;i <= num ;i++){
+            if (num % i === 0) {
+                document.getElementById("demo").innerText += i;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

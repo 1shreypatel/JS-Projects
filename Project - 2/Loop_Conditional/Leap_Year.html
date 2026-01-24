@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year</title>
+</head>
+<body>
+
+    <h1 id="stret-year"></h1>
+    <h1 id="end-year"></h1>
+    <h1 id="leap-year"></h1>
+
+    <script>
+
+        let LeapYear = "";
+
+        let stretYear = Number(prompt("Enter Start Year : "));
+        document.getElementById("stret-year").innerText = `Stret In Year ${stretYear}`;
+        let EndYear = Number(prompt("Enter End Year : "));
+        document.getElementById("end-year").innerText = `End In Year ${EndYear}`;
+
+        for(let i = stretYear; i <= EndYear ; i++){
+            if((i % 4 === 0 && i % 100 !== 0) || (i % 400 === 0)){
+                LeapYear += i + " ";
+            }
+        }
+
+        document.getElementById("leap-year").innerText = LeapYear;
+
+
+    </script>
+    
+</body>
+</html>

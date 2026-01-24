@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+<body>
+
+    <h1>Prime Number Find</h1>
+    <h1 id="reng"></h1>
+    <h1 id="demo"></h1>
+
+    <script>
+        let reng = Number(prompt("Enter Any Number : "));
+        document.getElementById("reng").innerText = `Range Of Number : ${reng}`;
+        
+        for(let i = 1; i <= reng; i++){
+            let cun = 0;
+            for(let j = 1;j <= i;j++){
+                if (i % j === 0) {
+                    cun++;
+                }
+            }
+            if (cun === 2) {
+                document.getElementById("demo").innerText += i;
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
