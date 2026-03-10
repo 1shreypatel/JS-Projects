@@ -3,30 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Number</title>
+    <title>Prime Number Finder</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI';
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        .container {
+            width: 480px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: 28px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #range {
+            color: #4ade80;
+            margin-top: 12px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        #count {
+            color: #facc15;
+            margin-top: 18px;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 3px 10px rgba(250, 204, 21, 0.3);
+        }
+
+        #primes {
+            margin-top: 20px;
+            font-size: 21px;
+            letter-spacing: 2px;
+            color: #60a5fa;
+            line-height: 1.7;
+            background: rgba(96, 165, 250, 0.1);
+            padding: 18px;
+            border-radius: 15px;
+            min-height: 80px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            text-align: left;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Prime Number Finder</h1>
 
-    <h1>Prime Number Find</h1>
-    <h1 id="reng"></h1>
-    <h1 id="demo"></h1>
+        <h1 id="range"></h1>
+        <h1 id="count"></h1>
+        <h1 id="primes"></h1>
+    </div>
 
     <script>
-        let reng = Number(prompt("Enter Any Number : "));
-        document.getElementById("reng").innerText = `Range Of Number : ${reng}`;
-        
-        for(let i = 1; i <= reng; i++){
+        let primesList = [];
+        let count = 0;
+
+        let range = Number(prompt("Enter Any Prime Number : "));
+        document.getElementById("range").innerText = `Range : 1 to ${range}`;
+
+        for(let i = 1; i <= range; i++){
             let cun = 0;
-            for(let j = 1;j <= i;j++){
+            for(let j = 1; j <= i; j++){
                 if (i % j === 0) {
                     cun++;
                 }
             }
             if (cun === 2) {
-                document.getElementById("demo").innerText += i;
+                primesList.push(i);
+                count++;
             }
         }
 
+        const displayPrimes = primesList.length ? primesList.join("  •  ") : "No prime numbers found.";
+
+        document.getElementById("primes").innerText = displayPrimes;
+        document.getElementById("count").innerText = `Total Prime Numbers : ${count}`;
     </script>
     
 </body>
