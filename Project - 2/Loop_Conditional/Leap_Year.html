@@ -3,32 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leap Year</title>
+    <title>Leap Year Finder</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI';
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        .container {
+            width: 480px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font-size: 28px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #start-year, #end-year {
+            color: #4ade80;
+            margin-top: 12px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        #count {
+            color: #facc15;
+            margin-top: 18px;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 3px 10px rgba(250, 204, 21, 0.3);
+        }
+
+        #leap-year {
+            margin-top: 20px;
+            font-size: 21px;
+            letter-spacing: 2px;
+            color: #60a5fa;
+            line-height: 1.7;
+            background: rgba(96, 165, 250, 0.1);
+            padding: 18px;
+            border-radius: 15px;
+            min-height: 80px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Leap Year Finder</h1>
 
-    <h1 id="stret-year"></h1>
-    <h1 id="end-year"></h1>
-    <h1 id="leap-year"></h1>
+        <h1 id="start-year"></h1>
+        <h1 id="end-year"></h1>
+        <h1 id="count"></h1>
+        <h1 id="leap-year"></h1>
+    </div>
 
     <script>
+        let leapYearsList = [];
+        let count = 0;
 
-        let LeapYear = "";
+        let startYear = Number(prompt("Enter Start Year : "));
+        document.getElementById("start-year").innerText = `Start Year : ${startYear}`;
 
-        let stretYear = Number(prompt("Enter Start Year : "));
-        document.getElementById("stret-year").innerText = `Stret In Year ${stretYear}`;
-        let EndYear = Number(prompt("Enter End Year : "));
-        document.getElementById("end-year").innerText = `End In Year ${EndYear}`;
+        let endYear = Number(prompt("Enter End Year : "));
+        document.getElementById("end-year").innerText = `End Year : ${endYear}`;
 
-        for(let i = stretYear; i <= EndYear ; i++){
-            if((i % 4 === 0 && i % 100 !== 0) || (i % 400 === 0)){
-                LeapYear += i + " ";
+        for (let i = startYear; i <= endYear; i++) {
+            if ((i % 4 === 0 && i % 100 !== 0) || (i % 400 === 0)) {
+                leapYearsList.push(i);
+                count++;
             }
         }
 
-        document.getElementById("leap-year").innerText = LeapYear;
+        const displayYears = leapYearsList.length ? leapYearsList.join(", ") : "No leap years in this range.";
 
-
+        document.getElementById("leap-year").innerText = displayYears;
+        document.getElementById("count").innerText = `Total Leap Years : ${count}`;
     </script>
     
 </body>
