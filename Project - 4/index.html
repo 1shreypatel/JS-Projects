@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotita - E-commerce</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        .main-header {
+            border-bottom: 1px solid #ebebeb;
+            padding: 15px 0;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .nav-link {
+            color: #000 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        .nav-link:hover {
+            color: #ff6f2e !important;
+        }
+
+        .brand-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-icons svg {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .header-icons svg:hover {
+            fill: #ff6f2e;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #ff6f2e;
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-weight: 600;
+        }
+
+        .garey {
+            color: #7e7e7e;
+        }
+
+        .cesariy {
+            color: #ff6f2e;
+        }
+
+        .color-box {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #000;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 5px; 
+        }
+
+        .color-box.active {
+            border: 2px solid #000;
+        }
+
+        .product-img {
+            position: relative;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+
+        .product-img img {
+            width: 100%;
+            transition: 0.5s ease;
+            display: block;
+        }
+
+        .product-img .hover-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .product-img:hover .hover-img {
+            opacity: 1;
+        }
+
+        .product-img:hover .main-img {
+            opacity: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg align-items-center">
+                
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <a class="navbar-brand brand-logo mx-auto mx-lg-0" href="#">DECEMBER</a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+                    </ul>
+                </div>
+
+                <div class="header-icons d-flex align-items-center gap-4 d-none d-lg-flex">
+                    <a href="#"><svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 0 1 6.32 12.9l4.387 4.387a1 1 0 0 1-1.414 1.414l-4.387-4.387A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg></a>
+                    
+                    <a href="#"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm9 17h-2v-2a4 4 0 0 0-4-4h-6a4 4 0 0 0-4 4v2H3v-2a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v2z"/></svg></a>
+                    
+                    <a href="#" class="position-relative">
+                        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7.82 14.19l-1.07-5.32H20.5l-1.39 6H8.53l-.71-1.19c-.04-.07-.06-.15-.06-.24 0-.14.11-.25.25-.25zm-2.11-7H3V5h2l3.6 10.59-1.35 2.44C7.1 18.33 7.02 18.66 7.02 19c0 1.1.9 2 2 2h12v-2H9.27c-.14 0-.25-.11-.25-.25l.03-.12 1.09-1.97h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 5H5.21l-.94-2H1v2h2l1.71 4.19z"/></svg>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <h1>Trendy Products</h1>
+    <section>
+        <div class="container">
+            <div class="row" id="prodect-item">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    
+        let arr = [
+            {
+                imgUrl: "./img/img-1.webp",
+                hoverImgUrl: "./img/hover-img-1.webp",
+                sortNmae: "H&M", name: "Abrigo largo lana",
+                disPrice: [{ dPrice: 640.00, }],
+                ogPrice: [{ oPrice: 617.42, }],
+                labelType: "HOT" 
+            },
+            { 
+                imgUrl: "./img/img-2.webp",
+                hoverImgUrl: "./img/hover-img-2.webp",
+                sortNmae: "Lotita",
+                name: "Awesome Aluminum Plate",
+                disPrice: [{ dPrice: 440.00, }],
+                ogPrice: [{ oPrice: 423.44, }],
+                labelType: false 
+            },
+            { 
+                imgUrl: "./img/img-3.webp",
+                hoverImgUrl: "./img/hover-img-3.webp",
+                sortNmae: "Lotita",
+                name: "Bunny Tweed Buckled",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: "On sale from 160.00", }],
+                labelType: false,
+                colors: ["#fc71a9", "#5be251"] 
+            },
+            {
+                imgUrl: "./img/img-4.webp",
+                hoverImgUrl: "./img/hover-img-4.webp",
+                sortNmae: "H&M",
+                name: "Abrigo largo lana",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: "On sale from 617.42", }],
+                labelType: "NEW",
+                colors: ["#000", "#4378ff", "#008b8b", "#ac5446"] 
+            },
+            {
+                imgUrl: "./img/img-5.webp",
+                hoverImgUrl: "./img/hover-img-5.webp",
+                sortNmae: "Lotita",
+                name: "Chain Shoulder Bag",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: 619.34, }],
+                labelType: "BEST SELLER",
+                colors: ["#4378ff", "#f2d7c0"] 
+            },
+            {
+                imgUrl: "./img/img-6.webp",
+                hoverImgUrl: "./img/img-6.webp",
+                sortNmae: "Lotita",
+                name: "Copper Hoop Earrings",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: 230.78, }],
+                labelType: false 
+            },
+            {
+                imgUrl: "./img/img-7.webp",
+                hoverImgUrl: "./img/hover-img-7.webp",
+                sortNmae: "Lotita",
+                name: "Corbet shoulder bag",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: 59.00, }],
+                labelType: "NEW" 
+            },
+            {
+                imgUrl: "./img/img-8.webp",
+                hoverImgUrl: "./img/hover-img-8.webp",
+                sortNmae: "H&M",
+                name: "Detail T-shirt",
+                disPrice: [{ dPrice: "", }],
+                ogPrice: [{ oPrice: 90.00, }],
+                labelType: "NEW" 
+            }
+        ]
+
+        function selectColor(el) {
+            let parent = el.parentElement;
+            let allColors = parent.querySelectorAll(".color-box");
+            allColors.forEach(box => box.classList.remove("active"));
+            el.classList.add("active");
+        }
+
+        arr.forEach((product, index) => {
+            let badgeClass = "";
+            let badgeText = "";
+            
+            if (product.labelType === "NEW") {
+                badgeClass = "bg-primary";
+                badgeText = "NEW";
+            } else if (product.labelType === "HOT") {
+                badgeClass = "bg-danger";
+                badgeText = "HOT";
+            } else if (product.labelType === "BEST SELLER") {
+                badgeClass = "bg-success";
+                badgeText = "BEST SELL";
+            }
+            
+            let originalPrice = product.ogPrice[0].oPrice;
+            let discountPrice = product.disPrice[0].dPrice;
+            
+            let colorsHTML = "";
+            if (product.colors) {
+                product.colors.forEach(color => {
+                    colorsHTML += `
+                    <span class="color-box" style="background:${color}" onclick="selectColor(this)"></span>`;
+                });
+            }
+
+            document.getElementById("prodect-item").innerHTML += `
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <div class="position-relative product-img">
+                    ${product.labelType ? `<span class="badge ${badgeClass} position-absolute mt-2 ms-2 z-1">${badgeText}</span>` : ""}
+                    <img src="${product.imgUrl}" class="img-fluid main-img" alt="${product.name}">
+                    ${product.hoverImgUrl ? `<img src="${product.hoverImgUrl}" class="img-fluid hover-img" alt="${product.name}">` : ""}
+                </div>
+                <div class="mt-3">
+                    <p class="garey mb-1" style="font-size: 13px;">${product.sortNmae}</p>
+                    <h6 class="mb-1 fw-bold">${product.name}</h6>
+                    <p class="mt-1">
+                        <strong class="cesariy">$${originalPrice}</strong>
+                        ${discountPrice ? `<s class="garey ms-2">$${discountPrice}</s>` : ""}
+                    </p>
+                    <div class="mt-2">
+                        ${colorsHTML}
+                    </div>
+                </div>
+            </div>`;
+        });
+    </script>
+</body>
+</html>
